@@ -1,15 +1,14 @@
 #include <catch.hpp>
 #include "math_functions.hpp"
 
-SCENARIO("Factorial of a natural number") {
-    GIVEN("a integer") {
-        int number = 4;
+TEST_CASE( "Low factorial values are computed", "[factorial]" ) {
+    REQUIRE( math_f::factorial(1) == 1 );
+    REQUIRE( math_f::factorial(2) == 2 );
+    REQUIRE( math_f::factorial(3) == 6 );
+    REQUIRE( math_f::factorial(10) == 3628800 );
+}
 
-
-        WHEN("Factorial of 4 is computed ") {
-            int factorial_number = 24;
-            REQUIRE(math_f::factorial(4) == factorial_number );
-            THEN("we obtain 24");
-        }
-    }
+TEST_CASE( "High factorial values are computed", "[factorial]" ) {
+    INFO("The value of i is " << 10);
+    REQUIRE( math_f::factorial(10) == 3628800 );
 }
